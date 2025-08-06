@@ -1,0 +1,310 @@
+name: Reusable PR Reviewer
+
+on:
+  workflow_call:
+    secrets:
+      GITHUB_PAT:
+        required: true
+      GEMINI_API_KEY:
+        required: true
+      LINEAR_API_KEY:
+        required: false
+    inputs:
+      review_depth:
+        description: 'Review depth (basic, standard, comprehensive)'
+        required: false
+        type: string
+        default: 'comprehensive'
+      enable_linear:
+        description: 'Enable Linear integration'
+        required: false
+        type: boolean
+        default: true
+      max_file_size:
+        description: 'Maximum file size to analyze (bytes)'
+        required: false
+        type: number
+        default: 1000000
+
+jobs:
+  ai-review:
+    name: AI Code Review
+    runs-on: ubuntu-latest
+    
+    # Skip if PR is draft or from bots
+    if: |
+      github.event.pull_request.draft == false &&
+      !contains(fromJson('["dependabot[bot]", "renovate[bot]", "github-actions[bot]"]'), github.actor)
+    
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          # Check if package.json exists, if not create minimal one
+          if [ ! -f package.json ]; then
+            echo '{"name": "pr-reviewer", "version": "1.0.0", "dependencies": {}}' > package.json
+          fi
+          
+          # Install required dependencies
+          npm install @octokit/rest node-fetch js-yaml uuid dotenv
+          
+          # Download PR reviewer files if not present
+          if [ ! -f agents/subagents/pr-review/index.js ]; then
+            mkdir -p agents/subagents/pr-review
+            mkdir -p agents/services
+            mkdir -p agents/config
+            mkdir -p scripts
+            
+            # Download files from your template repository
+            curl -H "Authorization: token ${{ secrets.GITHUB_PAT }}" \
+                 -o agents/subagents/pr-review/index.js \
+                 "https://api.github.com/repos/${{ github.repository_owner }}/pr-reviewer-template/contents/agents/subagents/pr-review/index.js?ref=main" | jq -r '.content' | base64 -d
+            
+            curl -H "Authorization: token ${{ secrets.GITHUB_PAT }}" \
+                 -o scripts/pr-reviewer.js \
+                 "https://api.github.com/repos/${{ github.repository_owner }}/pr-reviewer-template/contents/scripts/pr-reviewer.js?ref=main" | jq -r '.content' | base64 -d
+          fi
+
+      - name: Run AI PR Review
+        id: ai-review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_REVIEW_DEPTH: ${{ inputs.review_depth }}
+          PR_REVIEW_LINEAR_INTEGRATION: ${{ inputs.enable_linear }}
+          PR_REVIEW_MAX_FILE_SIZE: ${{ inputs.max_file_size }}
+        run: |
+          node scripts/pr-reviewer.js
+        continue-on-error: true
+
+      - name: Comment on PR (Success)
+        if: steps.ai-review.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            let reviewData;
+            try {
+              reviewData = JSON.parse(fs.readFileSync('pr-review-results.json', 'utf8'));
+            } catch (error) {
+              console.log('No review results file found');
+              return;
+            }
+            
+            if (!reviewData.success) {
+              console.log('Review was not successful:', reviewData.error);
+              return;
+            }
+            
+            const { review } = reviewData;
+            const prNumber = context.payload.pull_request.number;
+            
+            const comment = `## 🤖 AI Code Review by ${context.repo.owner}
+            
+            **Review Status**: ${review.sections?.approvalStatus || 'COMMENT'}
+            **Estimated Review Time**: ${review.metrics?.estimatedReviewTime || 'N/A'} minutes
+            **Risk Level**: ${review.metrics?.riskLevel || 0}/10
+            **Change Size**: ${review.metrics?.changeSize || 'unknown'}
+            
+            ### 📋 Summary
+            ${review.sections?.summary || 'No summary available'}
+            
+            ### 🔍 Code Quality Assessment
+            ${review.sections?.codeQuality || 'No code quality assessment available'}
+            
+            ${review.sections?.security ? `### 🔒 Security Analysis
+            ${review.sections.security}
+            ` : ''}
+            
+            ${review.sections?.performance ? `### ⚡ Performance Considerations
+            ${review.sections.performance}
+            ` : ''}
+            
+            ${review.sections?.testing ? `### 🧪 Testing Assessment
+            ${review.sections.testing}
+            ` : ''}
+            
+            ${review.recommendations?.length > 0 ? `### 💡 Recommendations
+            ${review.recommendations.map(rec => 
+              `- **${rec.type}** (${rec.priority}): ${rec.message}`
+            ).join('\n')}
+            ` : ''}
+            
+            ${review.context?.linearIntegration ? '✅ Linear integration active' : ''}
+            ${review.context?.codeAnalysis ? '✅ Code analysis completed' : ''}
+            ${review.context?.similarPRs ? '✅ Similar PRs analyzed' : ''}
+            
+            ---
+            *This review was generated by ${context.repo.owner}'s AI PR Reviewer. Please use your judgment and review the suggestions carefully.*
+            `;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: comment
+            });
+
+      - name: Comment on PR (Failure)
+        if: steps.ai-review.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            
+            const comment = `## 🤖 AI Code Review by ${context.repo.owner}
+            
+            ❌ **Review Failed**
+            
+            The AI code review encountered an error and could not complete. This might be due to:
+            - API rate limits
+            - Configuration issues
+            - Large PR size
+            
+            Please check the action logs for more details or contact your DevOps team.
+            
+            ---
+            *You can manually trigger this review by re-running the failed action.*
+            `;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: comment
+            });
+
+      - name: Upload review artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-review-results-${{ github.event.pull_request.number }}
+          path: |
+            pr-review-results.json
+            pr-review-logs.txt
+          retention-days: 30
+
+  # Add labels based on review
+  label-pr:
+    name: Label PR
+    runs-on: ubuntu-latest
+    needs: ai-review
+    if: always() && needs.ai-review.outcome == 'success'
+    
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Download review results
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-review-results-${{ github.event.pull_request.number }}
+
+      - name: Add labels based on review
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            let reviewData;
+            try {
+              reviewData = JSON.parse(fs.readFileSync('pr-review-results.json', 'utf8'));
+            } catch (error) {
+              console.log('No review results found');
+              return;
+            }
+            
+            if (!reviewData.success) return;
+            
+            const { review } = reviewData;
+            const prNumber = context.payload.pull_request.number;
+            const labels = [];
+            
+            // Add size label
+            if (review.metrics?.changeSize) {
+              labels.push(`size/${review.metrics.changeSize}`);
+            }
+            
+            // Add risk label
+            if (review.metrics?.riskLevel >= 7) {
+              labels.push('high-risk');
+            } else if (review.metrics?.riskLevel >= 4) {
+              labels.push('medium-risk');
+            }
+            
+            // Add review status label
+            if (review.sections?.approvalStatus === 'REQUEST_CHANGES') {
+              labels.push('needs-changes');
+            } else if (review.sections?.approvalStatus === 'APPROVE') {
+              labels.push('ready-to-merge');
+            }
+            
+            // Add context labels
+            if (review.context?.linearIntegration) {
+              labels.push('linear-linked');
+            }
+            
+            if (labels.length > 0) {
+              // Create labels if they don't exist
+              for (const label of labels) {
+                try {
+                  await github.rest.issues.createLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: label,
+                    color: this.getLabelColor(label)
+                  });
+                } catch (e) {
+                  // Label already exists, ignore
+                }
+              }
+              
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: labels
+              });
+            }
+            
+            // Helper function for label colors
+            getLabelColor(label) {
+              const colorMap = {
+                'size/xs': 'c2e0c6',
+                'size/small': 'bfe5bf', 
+                'size/medium': 'fef2c0',
+                'size/large': 'f9d71c',
+                'size/xl': 'e99695',
+                'high-risk': 'd73a49',
+                'medium-risk': 'fbca04',
+                'needs-changes': 'b60205',
+                'ready-to-merge': '0e8a16',
+                'linear-linked': '5319e7'
+              };
+              return colorMap[label] || 'ededed';
+            }
