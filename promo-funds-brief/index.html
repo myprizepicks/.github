@@ -4,89 +4,131 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Q3 2026 Promo Fund Issuance · PrizePicks</title>
-  <meta name="description" content="Corporate briefing: Q3 2026 promo fund credits by type, month, and issuer. $7,991,360.89 gross issuance Jul 1–Sep 17." />
+  <meta name="description" content="Q3 2026 promo fund issuance briefing — slide deck for screen and PDF export." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="doc-header">
-      <div class="doc-meta">
-        <span class="org">PrizePicks · Finance &amp; Growth</span>
-        <span class="doc-label">Internal briefing</span>
-      </div>
-      <h1>Q3 2026 promo fund issuance</h1>
-    </header>
+  <nav class="deck-chrome no-print" aria-label="Deck controls">
+    <div class="chrome-left">
+      <span class="org">PrizePicks · Finance &amp; Growth</span>
+      <span class="slide-indicator" id="slideIndicator">1 / 12</span>
+    </div>
+    <div class="chrome-right">
+      <button type="button" class="chrome-btn" id="prevBtn" aria-label="Previous slide">Prev</button>
+      <button type="button" class="chrome-btn" id="nextBtn" aria-label="Next slide">Next</button>
+      <button type="button" class="chrome-btn primary" id="printBtn">Export PDF</button>
+    </div>
+  </nav>
 
-    <aside class="callout callout-warning" role="note">
-      <strong class="callout-title">Not a full calendar quarter</strong>
-      <p>
-        The file covers 79 days through Sep&nbsp;17, not Sep&nbsp;30. Referral bonuses appear
-        only Jul&nbsp;1–21, then drop to zero. July is $5.25M (66% of dollars) because
-        referrals and deposit matches are concentrated there.
-      </p>
-    </aside>
-
-    <section class="stats" aria-label="Key metrics">
-      <div class="stat">
-        <div class="stat-value">$7,991,360.89</div>
-        <div class="stat-label">Total promo funds issued</div>
+  <main class="deck" id="deck">
+    <!-- 1. Title -->
+    <section class="slide" data-title="Title">
+      <header class="slide-top">
+        <span>PrizePicks · Finance &amp; Growth</span>
+        <span>Internal briefing</span>
+      </header>
+      <div class="slide-body title-body">
+        <p class="eyebrow">Q3 2026 · Jul 1 – Sep 17</p>
+        <h1>Promo fund issuance</h1>
+        <p class="title-amount">$7,991,360.89</p>
+        <p class="title-sub">Gross wallet promo credits issued in the audit export</p>
+        <div class="stats stats-4">
+          <div class="stat">
+            <div class="stat-value">186,409</div>
+            <div class="stat-label">Credit transactions</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">149,908</div>
+            <div class="stat-label">Unique users credited</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">$42.87</div>
+            <div class="stat-label">Average credit</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">40%</div>
+            <div class="stat-label">Admin share of dollars</div>
+          </div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="stat-value">186,409</div>
-        <div class="stat-label">Credit transactions</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">149,908</div>
-        <div class="stat-label">Unique users credited</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">$42.87</div>
-        <div class="stat-label">Average credit</div>
-      </div>
+      <footer class="slide-foot"><span>1</span></footer>
     </section>
 
-    <hr class="divider" />
-
-    <section>
-      <h2>By transaction type and source</h2>
-      <p class="body">
-        <code>source</code> is a 1:1 label on <code>transaction_type</code> in the audit export, so
-        the two groupings are identical. Deposit match is the most common credit; referral
-        bonus is the largest dollar bucket.
-      </p>
-
-      <div class="usage">
-        <div class="usage-meta">
-          <span>Share of $7.99M issued</span>
-          <span>186,409 credits</span>
+    <!-- 2. Coverage note -->
+    <section class="slide" data-title="Coverage">
+      <header class="slide-top">
+        <span>Coverage</span>
+        <span>Q3 2026</span>
+      </header>
+      <div class="slide-body">
+        <h2>Not a full calendar quarter</h2>
+        <div class="callout callout-warning">
+          <p>
+            The file covers <strong>79 days through Sep&nbsp;17</strong>, not Sep&nbsp;30.
+            Referral bonuses appear only Jul&nbsp;1–21, then drop to zero. July is
+            <strong>$5.25M (66% of dollars)</strong> because referrals and deposit matches
+            are concentrated there.
+          </p>
         </div>
-        <div class="usage-bar" aria-hidden="true">
-          <span style="--w:32.0; background:#1e3a5f" title="Referral bonus"></span>
-          <span style="--w:25.0; background:#2f5d8a" title="Admin adjustment"></span>
-          <span style="--w:15.2; background:#4a7ba7" title="Promo dash bulk"></span>
-          <span style="--w:14.0; background:#6b93b8" title="Deposit match"></span>
-          <span style="--w:13.8; background:#9bb4cc" title="New member offer"></span>
+        <div class="stats stats-3 tight">
+          <div class="stat">
+            <div class="stat-value">$5.25M</div>
+            <div class="stat-label">July · 65.7% of dollars</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">$1.72M</div>
+            <div class="stat-label">August · 21.6%</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">$1.02M</div>
+            <div class="stat-label">Sep 1–17 · 12.8%</div>
+          </div>
         </div>
-        <ul class="usage-legend">
-          <li><i style="background:#1e3a5f"></i>Referral 32.0%</li>
-          <li><i style="background:#2f5d8a"></i>Admin 25.0%</li>
-          <li><i style="background:#4a7ba7"></i>Bulk 15.2%</li>
-          <li><i style="background:#6b93b8"></i>Deposit 14.0%</li>
-          <li><i style="background:#9bb4cc"></i>New member 13.8%</li>
-        </ul>
+        <p class="note">
+          Wallet promo grants only. Recycled promo, reversals, and free-entry promotions
+          are excluded. Not net of later spend, expiry, or clawbacks.
+        </p>
       </div>
+      <footer class="slide-foot"><span>2</span></footer>
+    </section>
 
-      <div class="table-wrap">
-        <table>
+    <!-- 3. By type table -->
+    <section class="slide" data-title="By type">
+      <header class="slide-top">
+        <span>By transaction type and source</span>
+        <span>Share of $7.99M</span>
+      </header>
+      <div class="slide-body">
+        <h2>By transaction type and source</h2>
+        <p class="lede">
+          Deposit match is the most common credit; referral bonus is the largest dollar bucket.
+        </p>
+        <div class="usage">
+          <div class="usage-bar" aria-hidden="true">
+            <span style="--w:32.0; background:#1e3a5f"></span>
+            <span style="--w:25.0; background:#2f5d8a"></span>
+            <span style="--w:15.2; background:#4a7ba7"></span>
+            <span style="--w:14.0; background:#6b93b8"></span>
+            <span style="--w:13.8; background:#9bb4cc"></span>
+          </div>
+          <ul class="usage-legend">
+            <li><i style="background:#1e3a5f"></i>Referral 32%</li>
+            <li><i style="background:#2f5d8a"></i>Admin 25%</li>
+            <li><i style="background:#4a7ba7"></i>Bulk 15%</li>
+            <li><i style="background:#6b93b8"></i>Deposit 14%</li>
+            <li><i style="background:#9bb4cc"></i>New member 14%</li>
+          </ul>
+        </div>
+        <table class="compact">
           <thead>
             <tr>
-              <th>Transaction type</th>
+              <th>Type</th>
               <th>Source</th>
               <th class="num">Credits</th>
-              <th class="num">Unique users</th>
+              <th class="num">Users</th>
               <th class="num">Amount</th>
               <th class="num">Share</th>
               <th class="num">Avg</th>
@@ -99,7 +141,7 @@
               <td>Referral bonus</td>
               <td class="num">55,782</td>
               <td class="num">45,568</td>
-              <td class="num">$2,557,525.00</td>
+              <td class="num">$2,557,525</td>
               <td class="num">32.0%</td>
               <td class="num">$45.85</td>
               <td class="num">$50.00</td>
@@ -109,17 +151,17 @@
               <td>Admin adjustment</td>
               <td class="num">2,252</td>
               <td class="num">1,261</td>
-              <td class="num">$1,998,965.93</td>
+              <td class="num">$1,998,966</td>
               <td class="num">25.0%</td>
               <td class="num">$887.64</td>
               <td class="num">$100.00</td>
             </tr>
             <tr>
               <td><code>promo_added</code></td>
-              <td>Promo dash bulk upload</td>
+              <td>Promo dash bulk</td>
               <td class="num">11,435</td>
               <td class="num">2,380</td>
-              <td class="num">$1,212,115.00</td>
+              <td class="num">$1,212,115</td>
               <td class="num">15.2%</td>
               <td class="num">$106.00</td>
               <td class="num">$75.00</td>
@@ -129,7 +171,7 @@
               <td>Deposit match</td>
               <td class="num">86,539</td>
               <td class="num">80,222</td>
-              <td class="num">$1,116,251.66</td>
+              <td class="num">$1,116,252</td>
               <td class="num">14.0%</td>
               <td class="num">$12.90</td>
               <td class="num">$6.25</td>
@@ -139,224 +181,204 @@
               <td>New member offer</td>
               <td class="num">30,401</td>
               <td class="num">30,385</td>
-              <td class="num">$1,106,503.30</td>
+              <td class="num">$1,106,503</td>
               <td class="num">13.8%</td>
               <td class="num">$36.40</td>
               <td class="num">$50.00</td>
             </tr>
           </tbody>
-          <tfoot>
-            <tr>
-              <td>Total</td>
-              <td></td>
-              <td class="num">186,409</td>
-              <td class="num">149,908</td>
-              <td class="num">$7,991,360.89</td>
-              <td class="num">100%</td>
-              <td class="num">$42.87</td>
-              <td class="num">—</td>
-            </tr>
-          </tfoot>
         </table>
       </div>
-      <p class="footnote">
-        Unique users do not sum across types — a user can receive more than one kind of
-        credit. 127,941 users received a single credit; 21,967 received two or more (max 31).
-      </p>
+      <footer class="slide-foot"><span>3</span></footer>
     </section>
 
-    <section>
-      <h3>Amount by type</h3>
-      <div class="chart-card">
-        <svg class="hbar" viewBox="0 0 720 220" role="img" aria-label="Amount issued by source in millions">
-          <!-- Labels in a dedicated left column; bars start after a clear gutter -->
-          <g class="axis" font-size="13" fill="#5c6570" text-anchor="end">
-            <text x="168" y="30">Referral bonus</text>
-            <text x="168" y="70">Admin adjustment</text>
-            <text x="168" y="110">Promo dash bulk</text>
-            <text x="168" y="150">Deposit match</text>
-            <text x="168" y="190">New member offer</text>
+    <!-- 4. Amount by type -->
+    <section class="slide" data-title="Amount chart">
+      <header class="slide-top">
+        <span>Amount by type</span>
+        <span>$ millions</span>
+      </header>
+      <div class="slide-body">
+        <h2>Amount issued by type</h2>
+        <svg class="hbar" viewBox="0 0 720 260" role="img" aria-label="Amount by type">
+          <g font-size="14" fill="#5c6570" text-anchor="end">
+            <text x="175" y="36">Referral bonus</text>
+            <text x="175" y="84">Admin adjustment</text>
+            <text x="175" y="132">Promo dash bulk</text>
+            <text x="175" y="180">Deposit match</text>
+            <text x="175" y="228">New member offer</text>
           </g>
           <g fill="#1e3a5f">
-            <rect x="184" y="14" width="358" height="22" rx="2"></rect>
-            <rect x="184" y="54" width="280" height="22" rx="2"></rect>
-            <rect x="184" y="94" width="169" height="22" rx="2"></rect>
-            <rect x="184" y="134" width="157" height="22" rx="2"></rect>
-            <rect x="184" y="174" width="155" height="22" rx="2"></rect>
+            <rect x="190" y="18" width="380" height="28" rx="2"></rect>
+            <rect x="190" y="66" width="297" height="28" rx="2"></rect>
+            <rect x="190" y="114" width="180" height="28" rx="2"></rect>
+            <rect x="190" y="162" width="166" height="28" rx="2"></rect>
+            <rect x="190" y="210" width="165" height="28" rx="2"></rect>
           </g>
-          <g font-size="13" fill="#1a1d21" font-weight="600">
-            <text x="552" y="30">$2.56M</text>
-            <text x="474" y="70">$2.00M</text>
-            <text x="363" y="110">$1.21M</text>
-            <text x="351" y="150">$1.12M</text>
-            <text x="349" y="190">$1.11M</text>
-          </g>
-        </svg>
-        <p class="chart-caption">Amount issued by source · $ millions · Jul 1 – Sep 17, 2026</p>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <section>
-      <h2>Monthly mix</h2>
-      <p class="body">
-        July dwarfs the rest of the window. August and September are mostly admin
-        adjustments, promo-dash bulk uploads, and new-member offers. Deposit-match dollars
-        fall from $1.02M in July to $80k in August and $19k in September-to-date.
-      </p>
-
-      <div class="chart-card">
-        <svg class="stacked" viewBox="0 0 640 280" role="img" aria-label="Stacked monthly mix by type">
-          <!-- Scale: $5.5M = 225px. Stack bottom→top: referral, admin, bulk, deposit, NMO -->
-          <g transform="translate(72,20)">
-            <!-- July 5.247 -->
-            <rect x="40" y="120.4" width="100" height="104.6" fill="#1e3a5f"/>
-            <rect x="40" y="89.0" width="100" height="31.4" fill="#2f5d8a"/>
-            <rect x="40" y="72.7" width="100" height="16.3" fill="#4a7ba7"/>
-            <rect x="40" y="31.1" width="100" height="41.6" fill="#6b93b8"/>
-            <rect x="40" y="10.4" width="100" height="20.7" fill="#9bb4cc"/>
-            <!-- August 1.724 -->
-            <rect x="220" y="191.4" width="100" height="33.6" fill="#2f5d8a"/>
-            <rect x="220" y="166.8" width="100" height="24.6" fill="#4a7ba7"/>
-            <rect x="220" y="163.5" width="100" height="3.3" fill="#6b93b8"/>
-            <rect x="220" y="154.5" width="100" height="9.0" fill="#9bb4cc"/>
-            <!-- September 1.021 -->
-            <rect x="400" y="208.2" width="100" height="16.8" fill="#2f5d8a"/>
-            <rect x="400" y="199.5" width="100" height="8.7" fill="#4a7ba7"/>
-            <rect x="400" y="198.7" width="100" height="0.8" fill="#6b93b8"/>
-            <rect x="400" y="183.2" width="100" height="15.5" fill="#9bb4cc"/>
-            <line x1="0" y1="225" x2="540" y2="225" stroke="#d5dae0"/>
-            <g fill="#5c6570" font-size="12" text-anchor="middle">
-              <text x="90" y="248">July</text>
-              <text x="270" y="248">August</text>
-              <text x="450" y="248">September (1–17)</text>
-            </g>
-            <g fill="#5c6570" font-size="11" text-anchor="end">
-              <text x="-8" y="228">$0</text>
-              <text x="-8" y="127">$2.5M</text>
-              <text x="-8" y="24">$5.0M</text>
-            </g>
+          <g font-size="14" fill="#1a1d21" font-weight="600">
+            <text x="582" y="38">$2.56M</text>
+            <text x="499" y="86">$2.00M</text>
+            <text x="382" y="134">$1.21M</text>
+            <text x="368" y="182">$1.12M</text>
+            <text x="367" y="230">$1.11M</text>
           </g>
         </svg>
-        <ul class="usage-legend">
-          <li><i style="background:#1e3a5f"></i>Referral bonus</li>
-          <li><i style="background:#2f5d8a"></i>Admin adjustment</li>
-          <li><i style="background:#4a7ba7"></i>Promo dash bulk</li>
-          <li><i style="background:#6b93b8"></i>Deposit match</li>
-          <li><i style="background:#9bb4cc"></i>New member offer</li>
-        </ul>
-        <p class="chart-caption">Promo funds issued by month and type · $ millions · source CSV</p>
+        <p class="note">Jul 1 – Sep 17, 2026 · gross issuance</p>
       </div>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th class="num">Credits</th>
-              <th class="num">Unique users</th>
-              <th class="num">Amount</th>
-              <th class="num">Share</th>
-              <th>Largest component</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>July</td>
-              <td class="num">153,793</td>
-              <td class="num">127,518</td>
-              <td class="num">$5,246,827.92</td>
-              <td class="num">65.7%</td>
-              <td>Referral bonus $2.56M</td>
-            </tr>
-            <tr>
-              <td>August</td>
-              <td class="num">17,683</td>
-              <td class="num">12,867</td>
-              <td class="num">$1,724,392.28</td>
-              <td class="num">21.6%</td>
-              <td>Admin adjustment $821k</td>
-            </tr>
-            <tr>
-              <td>September 1–17</td>
-              <td class="num">14,933</td>
-              <td class="num">13,631</td>
-              <td class="num">$1,020,140.69</td>
-              <td class="num">12.8%</td>
-              <td>Admin adjustment $412k</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <footer class="slide-foot"><span>4</span></footer>
     </section>
 
-    <section>
-      <h3>Weekly issuance</h3>
-      <div class="chart-card">
-        <svg class="line" viewBox="0 0 700 260" role="img" aria-label="Weekly promo funds issued">
-          <!-- data: 1.33,1.63,1.25,0.45,0.63,0.33,0.32,0.32,0.26,0.77,0.47,0.24  max~1.7 -->
+    <!-- 5. Monthly mix -->
+    <section class="slide" data-title="Monthly mix">
+      <header class="slide-top">
+        <span>Monthly mix</span>
+        <span>Stacked by type</span>
+      </header>
+      <div class="slide-body split-slide">
+        <div>
+          <h2>Monthly mix</h2>
+          <p class="lede">July dwarfs Aug/Sep. Deposit-match dollars fall from $1.02M → $80k → $19k.</p>
+          <svg class="stacked" viewBox="0 0 560 220" role="img" aria-label="Monthly stacked bars">
+            <g transform="translate(48,8)">
+              <rect x="30" y="93.0" width="90" height="87.0" fill="#1e3a5f"/>
+              <rect x="30" y="66.9" width="90" height="26.1" fill="#2f5d8a"/>
+              <rect x="30" y="53.4" width="90" height="13.5" fill="#4a7ba7"/>
+              <rect x="30" y="18.8" width="90" height="34.6" fill="#6b93b8"/>
+              <rect x="30" y="1.6" width="90" height="17.2" fill="#9bb4cc"/>
+              <rect x="200" y="152.1" width="90" height="27.9" fill="#2f5d8a"/>
+              <rect x="200" y="131.6" width="90" height="20.5" fill="#4a7ba7"/>
+              <rect x="200" y="128.9" width="90" height="2.7" fill="#6b93b8"/>
+              <rect x="200" y="121.4" width="90" height="7.5" fill="#9bb4cc"/>
+              <rect x="370" y="166.0" width="90" height="14.0" fill="#2f5d8a"/>
+              <rect x="370" y="158.8" width="90" height="7.2" fill="#4a7ba7"/>
+              <rect x="370" y="158.1" width="90" height="0.7" fill="#6b93b8"/>
+              <rect x="370" y="145.3" width="90" height="12.8" fill="#9bb4cc"/>
+              <line x1="0" y1="180" x2="490" y2="180" stroke="#d5dae0"/>
+              <g fill="#5c6570" font-size="12" text-anchor="middle">
+                <text x="75" y="200">July $5.25M</text>
+                <text x="245" y="200">August $1.72M</text>
+                <text x="415" y="200">Sep 1–17 $1.02M</text>
+              </g>
+            </g>
+          </svg>
+          <ul class="usage-legend">
+            <li><i style="background:#1e3a5f"></i>Referral</li>
+            <li><i style="background:#2f5d8a"></i>Admin</li>
+            <li><i style="background:#4a7ba7"></i>Bulk</li>
+            <li><i style="background:#6b93b8"></i>Deposit</li>
+            <li><i style="background:#9bb4cc"></i>New member</li>
+          </ul>
+        </div>
+        <div>
+          <table class="compact">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th class="num">Credits</th>
+                <th class="num">Amount</th>
+                <th class="num">Share</th>
+                <th>Largest</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>July</td>
+                <td class="num">153,793</td>
+                <td class="num">$5,246,828</td>
+                <td class="num">65.7%</td>
+                <td>Referral $2.56M</td>
+              </tr>
+              <tr>
+                <td>August</td>
+                <td class="num">17,683</td>
+                <td class="num">$1,724,392</td>
+                <td class="num">21.6%</td>
+                <td>Admin $821k</td>
+              </tr>
+              <tr>
+                <td>Sep 1–17</td>
+                <td class="num">14,933</td>
+                <td class="num">$1,020,141</td>
+                <td class="num">12.8%</td>
+                <td>Admin $412k</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer class="slide-foot"><span>5</span></footer>
+    </section>
+
+    <!-- 6. Weekly -->
+    <section class="slide" data-title="Weekly">
+      <header class="slide-top">
+        <span>Weekly issuance</span>
+        <span>$ millions</span>
+      </header>
+      <div class="slide-body">
+        <h2>Weekly issuance</h2>
+        <svg class="line" viewBox="0 0 780 240" role="img" aria-label="Weekly line chart">
           <defs>
             <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1e3a5f" stop-opacity="0.18"/>
+              <stop offset="0%" stop-color="#1e3a5f" stop-opacity="0.16"/>
               <stop offset="100%" stop-color="#1e3a5f" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <g transform="translate(48,16)">
-            <line x1="0" y1="200" x2="620" y2="200" stroke="#d5dae0"/>
-            <line x1="0" y1="100" x2="620" y2="100" stroke="#eef1f4"/>
-            <line x1="0" y1="0" x2="620" y2="0" stroke="#eef1f4"/>
-            <!-- points spaced 56.36 apart, y = 200 - (v/1.7)*200 -->
-            <path fill="url(#fillGrad)" d="M0,43.5 L56.4,8.2 L112.7,52.9 L169.1,147.1 L225.5,125.9 L281.8,161.2 L338.2,162.4 L394.5,162.4 L450.9,169.4 L507.3,109.4 L563.6,144.7 L620,171.8 L620,200 L0,200 Z"/>
-            <path fill="none" stroke="#1e3a5f" stroke-width="2.5" d="M0,43.5 L56.4,8.2 L112.7,52.9 L169.1,147.1 L225.5,125.9 L281.8,161.2 L338.2,162.4 L394.5,162.4 L450.9,169.4 L507.3,109.4 L563.6,144.7 L620,171.8"/>
+          <g transform="translate(52,12)">
+            <line x1="0" y1="180" x2="700" y2="180" stroke="#d5dae0"/>
+            <line x1="0" y1="90" x2="700" y2="90" stroke="#eef1f4"/>
+            <path fill="url(#fillGrad)" d="M0,39.2 L63.6,7.4 L127.3,47.6 L190.9,132.4 L254.5,113.3 L318.2,145.1 L381.8,146.1 L445.5,146.1 L509.1,152.5 L572.7,98.5 L636.4,130.2 L700,154.6 L700,180 L0,180 Z"/>
+            <path fill="none" stroke="#1e3a5f" stroke-width="2.5" d="M0,39.2 L63.6,7.4 L127.3,47.6 L190.9,132.4 L254.5,113.3 L318.2,145.1 L381.8,146.1 L445.5,146.1 L509.1,152.5 L572.7,98.5 L636.4,130.2 L700,154.6"/>
             <g fill="#1e3a5f">
-              <circle cx="0" cy="43.5" r="3.5"/><circle cx="56.4" cy="8.2" r="3.5"/><circle cx="112.7" cy="52.9" r="3.5"/>
-              <circle cx="169.1" cy="147.1" r="3.5"/><circle cx="225.5" cy="125.9" r="3.5"/><circle cx="281.8" cy="161.2" r="3.5"/>
-              <circle cx="338.2" cy="162.4" r="3.5"/><circle cx="394.5" cy="162.4" r="3.5"/><circle cx="450.9" cy="169.4" r="3.5"/>
-              <circle cx="507.3" cy="109.4" r="3.5"/><circle cx="563.6" cy="144.7" r="3.5"/><circle cx="620" cy="171.8" r="3.5"/>
+              <circle cx="0" cy="39.2" r="3.5"/><circle cx="63.6" cy="7.4" r="3.5"/><circle cx="127.3" cy="47.6" r="3.5"/>
+              <circle cx="190.9" cy="132.4" r="3.5"/><circle cx="254.5" cy="113.3" r="3.5"/><circle cx="318.2" cy="145.1" r="3.5"/>
+              <circle cx="381.8" cy="146.1" r="3.5"/><circle cx="445.5" cy="146.1" r="3.5"/><circle cx="509.1" cy="152.5" r="3.5"/>
+              <circle cx="572.7" cy="98.5" r="3.5"/><circle cx="636.4" cy="130.2" r="3.5"/><circle cx="700" cy="154.6" r="3.5"/>
             </g>
-            <g fill="#5c6570" font-size="10" text-anchor="middle">
-              <text x="0" y="220">Jul 1</text><text x="56" y="220">Jul 6</text><text x="113" y="220">Jul 13</text>
-              <text x="169" y="220">Jul 20</text><text x="226" y="220">Jul 27</text><text x="282" y="220">Aug 3</text>
-              <text x="338" y="220">Aug 10</text><text x="395" y="220">Aug 17</text><text x="451" y="220">Aug 24</text>
-              <text x="507" y="220">Aug 31</text><text x="564" y="220">Sep 7</text><text x="620" y="220">Sep 14</text>
+            <g fill="#5c6570" font-size="11" text-anchor="middle">
+              <text x="0" y="202">Jul 1</text><text x="64" y="202">Jul 6</text><text x="127" y="202">Jul 13</text>
+              <text x="191" y="202">Jul 20</text><text x="255" y="202">Jul 27</text><text x="318" y="202">Aug 3</text>
+              <text x="382" y="202">Aug 10</text><text x="446" y="202">Aug 17</text><text x="509" y="202">Aug 24</text>
+              <text x="573" y="202">Aug 31</text><text x="636" y="202">Sep 7</text><text x="700" y="202">Sep 14</text>
             </g>
             <g fill="#5c6570" font-size="11" text-anchor="end">
-              <text x="-8" y="204">$0</text>
-              <text x="-8" y="104">$0.85M</text>
-              <text x="-8" y="4">$1.7M</text>
+              <text x="-8" y="184">$0</text>
+              <text x="-8" y="94">$0.85M</text>
+              <text x="-8" y="8">$1.7M</text>
             </g>
           </g>
         </svg>
-        <p class="chart-caption">
-          ISO weeks labeled by week start (W38 is a partial week through Sep&nbsp;17). Peak week
-          is Jul&nbsp;6–12 at $1.63M. The Aug&nbsp;31 week jumps to $767k because Aug&nbsp;31 alone is
+        <p class="note">
+          Peak week Jul&nbsp;6–12 at $1.63M. Aug&nbsp;31 week jumps to $767k — Aug&nbsp;31 alone is
           $455k of admin adjustments, including a $50,000 credit.
         </p>
       </div>
+      <footer class="slide-foot"><span>6</span></footer>
     </section>
 
-    <hr class="divider" />
-
-    <section>
-      <h2>Who credited the funds</h2>
-      <div class="stats stats-2">
-        <div class="stat">
-          <div class="stat-value">$4,780,279.96</div>
-          <div class="stat-label">System (59.8% · 172,722 txs)</div>
+    <!-- 7. Who credited -->
+    <section class="slide" data-title="Who credited">
+      <header class="slide-top">
+        <span>Who credited the funds</span>
+        <span>System vs admin</span>
+      </header>
+      <div class="slide-body">
+        <h2>Who credited the funds</h2>
+        <div class="stats stats-2">
+          <div class="stat">
+            <div class="stat-value">$4,780,280</div>
+            <div class="stat-label">System · 59.8% · 172,722 txs</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">$3,211,081</div>
+            <div class="stat-label">Admin · 40.2% · 13,687 txs</div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-value">$3,211,080.93</div>
-          <div class="stat-label">Admin (40.2% · 13,687 txs)</div>
-        </div>
-      </div>
-      <p class="body">
-        System credits are automated referral, deposit-match, and new-member offers. Admin
-        dollars are split between individual <code>pp_adjustment</code> rows and promo-dash
-        <code>promo_added</code> bulk uploads.
-      </p>
-      <div class="table-wrap">
-        <table>
+        <p class="lede">
+          System = automated referral, deposit-match, and new-member offers. Admin =
+          <code>pp_adjustment</code> plus promo-dash <code>promo_added</code> bulk uploads.
+        </p>
+        <table class="compact">
           <thead>
             <tr>
               <th>Object type</th>
@@ -370,112 +392,109 @@
               <td>User</td>
               <td><code>referral_bonus</code></td>
               <td class="num">55,782</td>
-              <td class="num">$2,557,525.00</td>
+              <td class="num">$2,557,525</td>
             </tr>
             <tr>
               <td>Promotion</td>
               <td><code>deposit_matched</code> + <code>new_member_offer</code></td>
               <td class="num">116,940</td>
-              <td class="num">$2,222,754.96</td>
+              <td class="num">$2,222,755</td>
             </tr>
             <tr>
               <td>Adjustment</td>
               <td><code>pp_adjustment</code></td>
               <td class="num">2,252</td>
-              <td class="num">$1,998,965.93</td>
+              <td class="num">$1,998,966</td>
             </tr>
             <tr>
               <td>BulkBalanceAdjustment</td>
               <td><code>promo_added</code></td>
               <td class="num">11,435</td>
-              <td class="num">$1,212,115.00</td>
+              <td class="num">$1,212,115</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <footer class="slide-foot"><span>7</span></footer>
     </section>
 
-    <section>
-      <h2>Product programs</h2>
-
-      <h3>New member offers · $1,106,503.30</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Offer</th>
-              <th class="num">Credits</th>
-              <th class="num">Amount</th>
-              <th>Implied unit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>New Member Play $5 Get $50 in Promo</td>
-              <td class="num">13,062</td>
-              <td class="num">$653,100.00</td>
-              <td>Exactly $50 each</td>
-            </tr>
-            <tr>
-              <td>New Member Deposit Match</td>
-              <td class="num">17,339</td>
-              <td class="num">$453,403.30</td>
-              <td>Avg $26.15 · cap $100</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- 8. Product programs -->
+    <section class="slide" data-title="Product programs">
+      <header class="slide-top">
+        <span>Product programs</span>
+        <span>NMO &amp; deposit match</span>
+      </header>
+      <div class="slide-body split-slide">
+        <div>
+          <h2>New member offers</h2>
+          <p class="lede tight">$1,106,503.30 total</p>
+          <table class="compact">
+            <thead>
+              <tr>
+                <th>Offer</th>
+                <th class="num">Credits</th>
+                <th class="num">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Play $5 Get $50 in Promo</td>
+                <td class="num">13,062</td>
+                <td class="num">$653,100</td>
+              </tr>
+              <tr>
+                <td>New Member Deposit Match</td>
+                <td class="num">17,339</td>
+                <td class="num">$453,403</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="note">Play $5 Get $50 is exactly $50 each. Deposit match avg $26.15, cap $100.</p>
+        </div>
+        <div>
+          <h2>Deposit match families</h2>
+          <p class="lede tight">$1,116,251.66 · 40 promotions</p>
+          <table class="compact">
+            <thead>
+              <tr>
+                <th>Family</th>
+                <th class="num">Credits</th>
+                <th class="num">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Account Zero</td><td class="num">36,363</td><td class="num">$297,116</td></tr>
+              <tr><td>Withdrawal General Deposit</td><td class="num">8,010</td><td class="num">$221,820</td></tr>
+              <tr><td>Second Deposit</td><td class="num">13,961</td><td class="num">$176,801</td></tr>
+              <tr><td>Inactivity General Deposit</td><td class="num">9,031</td><td class="num">$91,484</td></tr>
+              <tr><td>Second Deposit Offer</td><td class="num">5,143</td><td class="num">$76,732</td></tr>
+              <tr><td>Third Deposit Offer</td><td class="num">5,451</td><td class="num">$73,772</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <h3>Deposit match families · $1,116,251.66 · 40 promotions</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Promotion family</th>
-              <th class="num">Credits</th>
-              <th class="num">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Account Zero</td><td class="num">36,363</td><td class="num">$297,115.55</td></tr>
-            <tr><td>Withdrawal General Deposit</td><td class="num">8,010</td><td class="num">$221,820.28</td></tr>
-            <tr><td>Second Deposit</td><td class="num">13,961</td><td class="num">$176,800.74</td></tr>
-            <tr><td>Inactivity General Deposit</td><td class="num">9,031</td><td class="num">$91,484.38</td></tr>
-            <tr><td>Second Deposit Offer</td><td class="num">5,143</td><td class="num">$76,732.32</td></tr>
-            <tr><td>Third Deposit Offer</td><td class="num">5,451</td><td class="num">$73,772.38</td></tr>
-            <tr><td>Days Inactive Second Deposit</td><td class="num">3,522</td><td class="num">$69,989.84</td></tr>
-            <tr><td>Days Inactive Third Deposit</td><td class="num">2,995</td><td class="num">$63,499.40</td></tr>
-            <tr><td>Withdrawal Second Deposit</td><td class="num">2,063</td><td class="num">$45,036.77</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="footnote">
-        Highest single deposit-match promotion: Withdrawal General Deposit - H+ LTV - 50% DB ·
-        2,594 credits · $132,616.41. Median deposit match is $6.25; max is $200.
-      </p>
+      <footer class="slide-foot"><span>8</span></footer>
     </section>
 
-    <hr class="divider" />
-
-    <section>
-      <h2>Admin adjustments are concentrated</h2>
-      <p class="body">
-        2,252 <code>pp_adjustment</code> credits are 1.2% of transactions but 25% of dollars
-        (avg $888, median $100). 39 credits are $10k or more. The top user received $194,000
-        across 10 credits.
-      </p>
-
-      <aside class="callout callout-info" role="note">
-        <strong class="callout-title">Largest single credit</strong>
-        <p>
-          $50,000 on Aug&nbsp;31 to user 10994280, reason Promo Balance Adjustment - Other,
-          credited by Mike Lugasan. Same reason accounts for $1,732,735 (87% of all adjustment
-          dollars).
+    <!-- 9. Admin concentration -->
+    <section class="slide" data-title="Admin concentration">
+      <header class="slide-top">
+        <span>Admin adjustments</span>
+        <span>Concentration risk</span>
+      </header>
+      <div class="slide-body">
+        <h2>Admin adjustments are concentrated</h2>
+        <p class="lede">
+          2,252 <code>pp_adjustment</code> credits are 1.2% of transactions but
+          <strong>25% of dollars</strong> (avg $888, median $100). 39 credits are $10k+.
+          Top user: $194,000 across 10 credits.
         </p>
-      </aside>
-
-      <div class="table-wrap">
-        <table>
+        <div class="callout callout-info">
+          <strong>Largest single credit:</strong> $50,000 on Aug&nbsp;31 to user 10994280 —
+          Promo Balance Adjustment - Other, credited by Mike Lugasan. That reason alone is
+          $1,732,735 (87% of adjustment dollars).
+        </div>
+        <table class="compact">
           <thead>
             <tr>
               <th>pp_adjustment reason</th>
@@ -484,21 +503,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Promo Balance Adjustment - Other</td><td class="num">1,566</td><td class="num">$1,732,734.98</td></tr>
-            <tr><td>(none)</td><td class="num">177</td><td class="num">$185,934.17</td></tr>
-            <tr><td>VIP</td><td class="num">172</td><td class="num">$65,952.29</td></tr>
-            <tr><td>Zero Out Balance - Promo</td><td class="num">251</td><td class="num">$5,342.86</td></tr>
-            <tr><td>Test</td><td class="num">23</td><td class="num">$3,520.00</td></tr>
-            <tr><td>Credit Balance Adjustment - Other</td><td class="num">2</td><td class="num">$2,050.00</td></tr>
-            <tr><td>Social Giveaways</td><td class="num">20</td><td class="num">$2,000.00</td></tr>
-            <tr><td>All other reasons</td><td class="num">41</td><td class="num">$1,431.63</td></tr>
+            <tr><td>Promo Balance Adjustment - Other</td><td class="num">1,566</td><td class="num">$1,732,735</td></tr>
+            <tr><td>(none)</td><td class="num">177</td><td class="num">$185,934</td></tr>
+            <tr><td>VIP</td><td class="num">172</td><td class="num">$65,952</td></tr>
+            <tr><td>Zero Out Balance - Promo</td><td class="num">251</td><td class="num">$5,343</td></tr>
+            <tr><td>Test</td><td class="num">23</td><td class="num">$3,520</td></tr>
+            <tr><td>All other reasons</td><td class="num">63</td><td class="num">$5,482</td></tr>
           </tbody>
         </table>
       </div>
+      <footer class="slide-foot"><span>9</span></footer>
+    </section>
 
-      <h3>Admins issuing pp_adjustment + promo_added</h3>
-      <div class="table-wrap">
-        <table>
+    <!-- 10. Admins list -->
+    <section class="slide" data-title="Issuers">
+      <header class="slide-top">
+        <span>Admin issuers</span>
+        <span>pp_adjustment + promo_added</span>
+      </header>
+      <div class="slide-body">
+        <h2>Admins issuing adjustments &amp; bulk uploads</h2>
+        <table class="compact">
           <thead>
             <tr>
               <th>Credited by</th>
@@ -507,47 +532,39 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Matthew West &lt;matthew.west@prizepicks.com&gt;</td><td class="num">11,075</td><td class="num">$1,176,115.00</td></tr>
-            <tr><td>Mike Lugasan &lt;mike.lugasan.pp@prizepicks.com&gt;</td><td class="num">187</td><td class="num">$379,733.00</td></tr>
-            <tr><td>Jack Cooper &lt;jack.cooper@prizepicks.com&gt;</td><td class="num">71</td><td class="num">$332,575.00</td></tr>
-            <tr><td>Charles Bronner &lt;charles.bronner@prizepicks.com&gt;</td><td class="num">138</td><td class="num">$271,350.00</td></tr>
-            <tr><td>Jonas Barria &lt;jonas.barria.pp@prizepicks.com&gt;</td><td class="num">224</td><td class="num">$228,631.00</td></tr>
-            <tr><td>VA Emelo &lt;va.emelo.pp@prizepicks.com&gt;</td><td class="num">124</td><td class="num">$175,675.00</td></tr>
-            <tr><td>Mikel Betts &lt;mikel.betts@prizepicks.com&gt;</td><td class="num">88</td><td class="num">$173,949.92</td></tr>
-            <tr><td>Leomar Rebollido &lt;leomar.rebollido.pp@prizepicks.com&gt;</td><td class="num">150</td><td class="num">$168,706.00</td></tr>
-            <tr><td>Jack Gonzales &lt;jack.gonzales.pp@prizepicks.com&gt;</td><td class="num">251</td><td class="num">$133,250.00</td></tr>
-            <tr><td>Kevin Kornecki &lt;kevin.kornecki@prizepicks.com&gt;</td><td class="num">442</td><td class="num">$44,600.00</td></tr>
+            <tr><td>Matthew West</td><td class="num">11,075</td><td class="num">$1,176,115</td></tr>
+            <tr><td>Mike Lugasan</td><td class="num">187</td><td class="num">$379,733</td></tr>
+            <tr><td>Jack Cooper</td><td class="num">71</td><td class="num">$332,575</td></tr>
+            <tr><td>Charles Bronner</td><td class="num">138</td><td class="num">$271,350</td></tr>
+            <tr><td>Jonas Barria</td><td class="num">224</td><td class="num">$228,631</td></tr>
+            <tr><td>VA Emelo</td><td class="num">124</td><td class="num">$175,675</td></tr>
+            <tr><td>Mikel Betts</td><td class="num">88</td><td class="num">$173,950</td></tr>
+            <tr><td>Leomar Rebollido</td><td class="num">150</td><td class="num">$168,706</td></tr>
+            <tr><td>Jack Gonzales</td><td class="num">251</td><td class="num">$133,250</td></tr>
+            <tr><td>Kevin Kornecki</td><td class="num">442</td><td class="num">$44,600</td></tr>
           </tbody>
         </table>
+        <p class="note">
+          Matthew West is nearly the entire promo-dash bulk channel ($1.21M). Bulk uploads
+          have no reason/note in this export.
+        </p>
       </div>
-      <p class="footnote">
-        Matthew West is almost the entire promo-dash bulk channel (11,435 <code>promo_added</code>
-        credits, $1.21M, no reason/note populated). Promo-added credits have no
-        <code>reason</code> or <code>note</code> in this export.
-      </p>
+      <footer class="slide-foot"><span>10</span></footer>
     </section>
 
-    <aside class="callout callout-neutral" role="note">
-      <strong class="callout-title">What this total is</strong>
-      <p>
-        $7,991,360.89 is gross promo issuance in the file: unreverted credits with
-        amount_cents above zero, types deposit_matched, new_member_offer, referral_bonus,
-        promo_added, and pp_adjustment. It is not net of later spend, expiry, or clawbacks,
-        and it does not include Sep&nbsp;18–30.
-      </p>
-    </aside>
-
-    <hr class="divider" />
-
-    <section>
-      <h2>Recommended path: replace with bonus lineups</h2>
-      <p class="body">
-        Upfront promo-wallet grants create durable liability and a manual expiry burden.
-        Bonus lineup promotions pay credit only if the lineup wins and expire with the
-        contest — no residual wallet balance.
-      </p>
-      <div class="table-wrap">
-        <table>
+    <!-- 11. Recommendation -->
+    <section class="slide" data-title="Recommendation">
+      <header class="slide-top">
+        <span>Recommended path</span>
+        <span>Bonus lineups</span>
+      </header>
+      <div class="slide-body">
+        <h2>Replace promo funds with bonus lineups</h2>
+        <p class="lede">
+          Pay credit only if the lineup wins; unused/losing entries expire with the contest —
+          no lingering wallet liability.
+        </p>
+        <table class="compact">
           <thead>
             <tr>
               <th>Current source</th>
@@ -557,26 +574,50 @@
           </thead>
           <tbody>
             <tr><td>Referral bonus</td><td class="num">$2.56M</td><td>Bonus lineup entries after qualifying play</td></tr>
-            <tr><td>Admin VIP / “Other”</td><td class="num">$1.73M+</td><td>Curated bonus lineups + dual approval; ban raw wallet grants</td></tr>
-            <tr><td>Promo dash bulk upload</td><td class="num">$1.21M</td><td>Bonus lineup assignment tool; retire CSV wallet top-ups</td></tr>
-            <tr><td>Deposit match</td><td class="num">$1.12M</td><td>LTV-tiered bonus lineup bank on deposit / reactivation</td></tr>
-            <tr><td>New member offers</td><td class="num">$1.11M</td><td>Play $5 unlocks bonus lineups ≤$50 EV; payout on wins only</td></tr>
+            <tr><td>Admin VIP / “Other”</td><td class="num">$1.73M+</td><td>Curated bonus lineups + dual approval</td></tr>
+            <tr><td>Promo dash bulk upload</td><td class="num">$1.21M</td><td>Bonus lineup assignment; retire CSV top-ups</td></tr>
+            <tr><td>Deposit match</td><td class="num">$1.12M</td><td>LTV-tiered bonus lineup bank</td></tr>
+            <tr><td>New member offers</td><td class="num">$1.11M</td><td>Bonus lineups ≤$50 EV; payout on wins</td></tr>
           </tbody>
         </table>
+        <ol class="phases">
+          <li><strong>Align</strong> — Finance recognition, metrics, inventory balances</li>
+          <li><strong>Ship</strong> — Bonus lineup as default incentive vehicle</li>
+          <li><strong>Remap</strong> — Move each channel off wallet grants</li>
+          <li><strong>Sunset</strong> — Freeze net-new grants → ramp → one wind-down</li>
+          <li><strong>Govern</strong> — Dual approval; CRM language to “bonus lineups”</li>
+        </ol>
       </div>
-      <ol class="phases">
-        <li><strong>Align &amp; measure</strong> — Finance recognition, success metrics, inventory outstanding balances.</li>
-        <li><strong>Ship bonus lineup default</strong> — Configurable eligibility, distinct ledger, fraud caps.</li>
-        <li><strong>Remap channels</strong> — Referrals, NMO, deposit matches, bulk, VIP → bonus lineups or kill.</li>
-        <li><strong>Sunset with ramp</strong> — Freeze net-new wallet grants → holdouts → one automated wind-down.</li>
-        <li><strong>Govern</strong> — Dual approval above threshold; CRM language shifts to “bonus lineups.”</li>
-      </ol>
+      <footer class="slide-foot"><span>11</span></footer>
     </section>
 
-    <footer class="doc-footer">
-      <span>PrizePicks · Confidential</span>
-      <span>Generated from Q3 2026 promo fund credit export</span>
-    </footer>
-  </div>
+    <!-- 12. Closing -->
+    <section class="slide" data-title="Summary">
+      <header class="slide-top">
+        <span>Summary</span>
+        <span>What this total is</span>
+      </header>
+      <div class="slide-body title-body">
+        <h2>Bottom line</h2>
+        <p class="title-amount sm">$7,991,360.89</p>
+        <div class="callout callout-neutral">
+          <p>
+            Gross promo issuance in the file: unreverted credits with amount_cents &gt; 0
+            for deposit_matched, new_member_offer, referral_bonus, promo_added, and
+            pp_adjustment. Not net of spend, expiry, or clawbacks. Does not include
+            Sep&nbsp;18–30.
+          </p>
+        </div>
+        <ul class="summary-points">
+          <li>One-third of dollars: July referral bonuses</li>
+          <li>One-quarter of dollars: high-ticket admin adjustments (1.2% of txns)</li>
+          <li>Path forward: win-contingent, self-expiring bonus lineups</li>
+        </ul>
+      </div>
+      <footer class="slide-foot"><span>12</span></footer>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
