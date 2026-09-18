@@ -1,0 +1,41 @@
+promotion_id,promotion_name,promotion_type,transactions,unique_users,total_amount_dollars,avg_amount_dollars
+33940.0,Withdrawal General Deposit - H+ LTV - 50% DB,DepositMatch,2594,2589,132616.41,51.12429067077872
+30710.0,Second Deposit - L - 50% DB,DepositMatch,9725,9725,112926.12,11.611940359897172
+27109.0,Account Zero - M LTV - 1 - 25% DB,DepositMatch,13497,13497,75758.07,5.612956212491666
+27105.0,Account Zero - H LTV - 1 - 25% DB,DepositMatch,8942,8942,73875.84,8.261668530530082
+33941.0,Withdrawal General Deposit - H LTV - 50% DB,DepositMatch,3698,3698,70852.08,19.15956733369389
+30709.0,Second Deposit - H - 50% DB,DepositMatch,4236,4236,63874.62,15.07899433427762
+33347.0,Inactivity General Deposit - H LTV - 25% DB,DepositMatch,4644,4644,46036.15,9.913038329026701
+27113.0,Account Zero - L LTV - 1 - 25% DB,DepositMatch,7406,7406,38680.61,5.222874696192276
+27104.0,Account Zero - H+ LTV - 1 - 50% DB,DepositMatch,797,797,38164.87,47.88565872020076
+30427.0,Withdrawal Second Deposit - H 50% DB,DepositMatch,1281,1281,29715.09,23.196791569086653
+22013.0,Third Deposit Offer - H Non-OSB - 50% DB,DepositMatch,1547,1547,29291.05,18.93409825468649
+21997.0,Second Deposit Offer - H Non-OSB - 50% DB,DepositMatch,1375,1375,29042.22,21.121614545454545
+22004.0,Days Inactive Second Deposit Offer - H Non-OSB - 50% DB,DepositMatch,1009,1009,26410.49,26.174915758176414
+22022.0,Days Inactive Third Deposit Offer - H OSB - 50% DB,DepositMatch,922,922,25853.11,28.04024945770065
+22001.0,Second Deposit Offer - L Non-OSB - 50% DB,DepositMatch,2072,2072,24964.5,12.04850386100386
+33346.0,Inactivity General Deposit - H+ LTV - 25% DB,DepositMatch,915,914,22580.14,24.67774863387978
+22014.0,Third Deposit Offer - L Non-OSB - 50% DB,DepositMatch,2072,2072,22570.94,10.89331081081081
+22020.0,Days Inactive Third Deposit Offer - H Non-OSB - 50% DB,DepositMatch,810,810,20653.11,25.497666666666667
+20694.0,Account Zero - M LTV - 3 - 50% DB,DepositMatch,2136,2136,20086.16,9.403632958801499
+20695.0,Account Zero - M LTV - 8 - 100% DB,DepositMatch,1460,1460,19233.75,13.173801369863014
+33348.0,Inactivity General Deposit - M LTV - 25% DB,DepositMatch,2441,2441,16890.22,6.919385497746825
+22008.0,Days Inactive Second Deposit Offer - H OSB - 50% DB,DepositMatch,559,559,16640.97,29.769177101967802
+30428.0,Withdrawal Second Deposit - L 50% DB,DepositMatch,782,782,15321.68,19.59294117647059
+33942.0,Withdrawal General Deposit - M LTV - 50% DB,DepositMatch,1347,1347,14830.87,11.010296956198962
+22005.0,Days Inactive Second Deposit Offer - L Non-OSB - 50% DB,DepositMatch,1096,1096,14466.59,13.199443430656935
+22011.0,Days Inactive Second Deposit Offer - L OSB - 50% DB,DepositMatch,858,858,12471.79,14.535885780885781
+22002.0,Second Deposit Offer - H OSB - 50% DB,DepositMatch,605,605,11939.38,19.734512396694214
+22019.0,Third Deposit Offer - L OSB - 50% DB,DepositMatch,1197,1197,11224.21,9.376950710108604
+20691.0,Account Zero - H LTV - 3 - 50% DB,DepositMatch,779,779,11056.78,14.193555840821567
+20692.0,Account Zero - H LTV - 8 - 100% DB,DepositMatch,543,543,10959.4,20.18305709023941
+22003.0,Second Deposit Offer - L OSB - 50% DB,DepositMatch,1091,1091,10786.22,9.88654445462878
+22017.0,Third Deposit Offer - H OSB - 50% DB,DepositMatch,635,635,10686.18,16.828629921259843
+22021.0,Days Inactive Third Deposit Offer - L Non-OSB - 50% DB,DepositMatch,833,833,10400.8,12.4859543817527
+22023.0,Days Inactive Third Deposit Offer - L OSB - 50% DB,DepositMatch,430,430,6592.38,15.331116279069768
+33349.0,Inactivity General Deposit - L LTV - 25% DB,DepositMatch,1031,1031,5977.87,5.798128031037828
+20697.0,Account Zero - L LTV - 3 - 50% DB,DepositMatch,528,528,4733.52,8.965000000000002
+33943.0,Withdrawal General Deposit - L LTV - 50% DB,DepositMatch,371,371,3520.92,9.490350404312668
+20698.0,Account Zero - L LTV - 8 - 100% DB,DepositMatch,238,238,3114.05,13.084243697478993
+25402.0,Account Zero - H+ LTV - 3 - 50% DB,DepositMatch,26,26,999.5,38.44230769230769
+25403.0,Account Zero - H+ LTV - 8 - 100% DB,DepositMatch,11,11,453.0,41.18181818181818
