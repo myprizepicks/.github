@@ -17,29 +17,4 @@
   );
 
   document.querySelectorAll(".reveal, .bar-row").forEach((el) => observer.observe(el));
-
-  const amount = document.querySelector(".hero-amount");
-  if (amount) {
-    amount.textContent = "$7,991,361";
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const target = Number(amount.dataset.count || "0");
-      const duration = 1400;
-      const start = performance.now();
-      const format = (n) =>
-        "$" +
-        Math.round(n).toLocaleString("en-US", {
-          maximumFractionDigits: 0,
-        });
-
-      const tick = (now) => {
-        const t = Math.min(1, (now - start) / duration);
-        const eased = 1 - Math.pow(1 - t, 3);
-        amount.textContent = format(target * eased);
-        if (t < 1) requestAnimationFrame(tick);
-        else amount.textContent = "$7,991,361";
-      };
-
-      requestAnimationFrame(tick);
-    }
-  }
 })();
