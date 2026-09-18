@@ -552,46 +552,7 @@
       <footer class="slide-foot"><span>10</span></footer>
     </section>
 
-    <!-- 11. Recommendation -->
-    <section class="slide" data-title="Recommendation">
-      <header class="slide-top">
-        <span>Recommended path</span>
-        <span>Bonus lineups</span>
-      </header>
-      <div class="slide-body">
-        <h2>Replace promo funds with bonus lineups</h2>
-        <p class="lede">
-          Pay credit only if the lineup wins; unused/losing entries expire with the contest —
-          no lingering wallet liability.
-        </p>
-        <table class="compact">
-          <thead>
-            <tr>
-              <th>Current source</th>
-              <th class="num">Q3 $</th>
-              <th>Replacement</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Referral bonus</td><td class="num">$2.56M</td><td>Bonus lineup entries after qualifying play</td></tr>
-            <tr><td>Admin VIP / “Other”</td><td class="num">$1.73M+</td><td>Curated bonus lineups + dual approval</td></tr>
-            <tr><td>Promo dash bulk upload</td><td class="num">$1.21M</td><td>Bonus lineup assignment; retire CSV top-ups</td></tr>
-            <tr><td>Deposit match</td><td class="num">$1.12M</td><td>LTV-tiered bonus lineup bank</td></tr>
-            <tr><td>New member offers</td><td class="num">$1.11M</td><td>Bonus lineups ≤$50 EV; payout on wins</td></tr>
-          </tbody>
-        </table>
-        <ol class="phases">
-          <li><strong>Align</strong> — Finance recognition, metrics, inventory balances</li>
-          <li><strong>Ship</strong> — Bonus lineup as default incentive vehicle</li>
-          <li><strong>Remap</strong> — Move each channel off wallet grants</li>
-          <li><strong>Sunset</strong> — Freeze net-new grants → ramp → one wind-down</li>
-          <li><strong>Govern</strong> — Dual approval; CRM language to “bonus lineups”</li>
-        </ol>
-      </div>
-      <footer class="slide-foot"><span>11</span></footer>
-    </section>
-
-    <!-- 12. Closing -->
+    <!-- 11. Summary of issuance -->
     <section class="slide" data-title="Summary">
       <header class="slide-top">
         <span>Summary</span>
@@ -611,10 +572,441 @@
         <ul class="summary-points">
           <li>One-third of dollars: July referral bonuses</li>
           <li>One-quarter of dollars: high-ticket admin adjustments (1.2% of txns)</li>
-          <li>Path forward: win-contingent, self-expiring bonus lineups</li>
+          <li>Next: stop minting promo funds — route issuers to Bonus Lineups</li>
         </ul>
       </div>
+      <footer class="slide-foot"><span>11</span></footer>
+    </section>
+
+    <!-- 12. Plan title -->
+    <section class="slide" data-title="Plan title">
+      <header class="slide-top">
+        <span>Action plan</span>
+        <span>Bonus Lineups</span>
+      </header>
+      <div class="slide-body title-body">
+        <p class="eyebrow">Grounded in Rails issuance paths · Q3 through Sep 17</p>
+        <h1>Stop minting promo funds</h1>
+        <p class="lede">
+          Replace wallet <code>promo_cents</code> grants with expiring Bonus Lineups
+          (<code>FreeEntryPromotion</code> + <code>PromotionUser</code>. Winnings already
+          pay out as credit. Unused offers expire on <code>use_by</code> with no
+          balance-sheet remainder.
+        </p>
+        <div class="callout callout-info">
+          <strong>Do not build a new promo product.</strong>
+          Bonus Lineups, Braze dynamic FreeEntry, admin CSV upload, and
+          <code>PromotionPayoutService</code> (DepositMatch / ProtectedPlay redemption)
+          already exist. Cut off <code>Users::Wallet::Credit(funds_type: :promo)</code>
+          and route each issuer onto those paths.
+        </div>
+        <div class="stats stats-4">
+          <div class="stat">
+            <div class="stat-value">$7.99M</div>
+            <div class="stat-label">Q3-to-date promo issued (gross)</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Issuance channels to cut over</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">0</div>
+            <div class="stat-label">Automated promo expiry jobs today</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">Credit</div>
+            <div class="stat-label">Bonus Lineup win payout (existing)</div>
+          </div>
+        </div>
+      </div>
       <footer class="slide-foot"><span>12</span></footer>
+    </section>
+
+    <!-- 13. Books comparison -->
+    <section class="slide" data-title="Books">
+      <header class="slide-top">
+        <span>Why this works on the books</span>
+        <span>Promo vs Bonus Lineup</span>
+      </header>
+      <div class="slide-body">
+        <h2>Why this works on the books</h2>
+        <table class="compact">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Wallet promo funds</th>
+              <th>Bonus Lineup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>At issue</strong></td>
+              <td>Full amount hits promo_cents immediately</td>
+              <td>PromotionUser entitlement only — no wallet move</td>
+            </tr>
+            <tr>
+              <td><strong>Unused</strong></td>
+              <td>Sits until spent or a human claws it back</td>
+              <td>Expires when PromotionUser.use_by passes</td>
+            </tr>
+            <tr>
+              <td><strong>Lost lineup</strong></td>
+              <td>Promo stake consumed; liability gone</td>
+              <td>Nothing paid; never was a wallet liability</td>
+            </tr>
+            <tr>
+              <td><strong>Won lineup</strong></td>
+              <td>Often credit, depending on payout_type</td>
+              <td>Always credit (net of stake) — withdrawable</td>
+            </tr>
+            <tr>
+              <td><strong>Flexibility</strong></td>
+              <td>Any stake up to the bucket</td>
+              <td>Fixed entry_amount_cents; DFS / Player Picks only</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Promo is one fungible integer with no per-grant ledger — expiry is a manual
+          campaign. Bonus Lineups are already per-user tokens with <code>use_by</code>.
+        </p>
+        <div class="callout callout-warning">
+          <strong>Economics change, not just the ledger.</strong>
+          A $50 promo grant is a $50 house cost when it posts. A $50 Bonus Lineup costs
+          EV: P(redeem) × P(win) × net credit payout. Wins are withdrawable credit via
+          <code>NetPayoutService</code> (multiplier − 1), so a win can cost more cash than
+          the old promo stake. Align Finance and Compliance before flipping high-volume channels.
+        </div>
+      </div>
+      <footer class="slide-foot"><span>13</span></footer>
+    </section>
+
+    <!-- 14. Channel cutover overview -->
+    <section class="slide" data-title="Channels overview">
+      <header class="slide-top">
+        <span>Cut over by channel</span>
+        <span>Q3 issuance mix</span>
+      </header>
+      <div class="slide-body">
+        <h2>Cut over by channel (Q3 issuance mix)</h2>
+        <div class="usage">
+          <div class="usage-meta">
+            <span>Q3-to-date promo dollars to stop minting</span>
+            <span>$7.99M through Sep 17</span>
+          </div>
+          <div class="usage-bar" aria-hidden="true">
+            <span style="--w:32.0; background:#1e3a5f"></span>
+            <span style="--w:25.0; background:#2f5d8a"></span>
+            <span style="--w:15.2; background:#4a7ba7"></span>
+            <span style="--w:14.0; background:#6b93b8"></span>
+            <span style="--w:13.8; background:#9bb4cc"></span>
+          </div>
+          <ul class="usage-legend">
+            <li><i style="background:#1e3a5f"></i>Referral $2.56M</li>
+            <li><i style="background:#2f5d8a"></i>Admin $2.00M</li>
+            <li><i style="background:#4a7ba7"></i>Dash $1.21M</li>
+            <li><i style="background:#6b93b8"></i>Deposit $1.12M</li>
+            <li><i style="background:#9bb4cc"></i>NMO $1.11M</li>
+          </ul>
+        </div>
+        <table class="compact dense">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th class="num">Q3 $</th>
+              <th>Replacement</th>
+              <th>Effort</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Referral bonus</td>
+              <td class="num">$2,557,525</td>
+              <td>On referee FTD, mint expiring FreeEntries (or keep missions). Do not re-enable wallet promo.</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td>Admin pp_adjustment</td>
+              <td class="num">$1,998,966</td>
+              <td>Default goodwill/VIP to FreeEntryUpload. Keep credit for ATO/resettlement/zero-out. Ban new promo_cents.</td>
+              <td>Policy + UI</td>
+            </tr>
+            <tr>
+              <td>Promo dash bulk</td>
+              <td class="num">$1,212,115</td>
+              <td>Route CSV through FreeEntryUpload. Gate or remove is_promo=true bulk credit.</td>
+              <td>Ops + small eng</td>
+            </tr>
+            <tr>
+              <td>Deposit match</td>
+              <td class="num">$1,116,252</td>
+              <td>Turn on DEPOSIT_MATCH_PROMOTION_REDEMPTION; backfill promotion_redemption tag.</td>
+              <td>Low — built</td>
+            </tr>
+            <tr>
+              <td>New member offer</td>
+              <td class="num">$1,106,503</td>
+              <td>Retire fifty_dollar_promo / FTD wallet match. Assign five_free_ten_dollar_lineups.</td>
+              <td>Low — built</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="slide-foot"><span>14</span></footer>
+    </section>
+
+    <!-- 15. Channel today detail -->
+    <section class="slide" data-title="Channel today">
+      <header class="slide-top">
+        <span>Cut over by channel</span>
+        <span>What runs today</span>
+      </header>
+      <div class="slide-body">
+        <h2>What each channel does today</h2>
+        <table class="compact dense">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Today</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Referral bonus</strong></td>
+              <td>CreditReferralBonus → promo_cents. $0 in Aug/Sep in this file.</td>
+            </tr>
+            <tr>
+              <td><strong>Admin pp_adjustment</strong></td>
+              <td>CreateAdjustment is_promo. $50k max. 87% reason Other.</td>
+            </tr>
+            <tr>
+              <td><strong>Promo dash bulk</strong></td>
+              <td>CreditPromotion via /promo_dash. Almost all Matthew West.</td>
+            </tr>
+            <tr>
+              <td><strong>Deposit match</strong></td>
+              <td>CreditDepositMatched unless promotion_redemption tag.</td>
+            </tr>
+            <tr>
+              <td><strong>New member offer</strong></td>
+              <td>Play $5 get $50 promo, or FTD min(deposit, $100) promo.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Referral: confirm missions vs outage before rebuilding — $2.56M in July then $0.
+          Deposit-match copy still says “Bonus funds”; update when the redemption flag is on.
+        </p>
+      </div>
+      <footer class="slide-foot"><span>15</span></footer>
+    </section>
+
+    <!-- 16. Sequence 0-1 -->
+    <section class="slide" data-title="Sequence 0-1">
+      <header class="slide-top">
+        <span>Recommended sequence</span>
+        <span>Steps 0–1</span>
+      </header>
+      <div class="slide-body">
+        <h2>Recommended sequence</h2>
+        <h3>0. Lock the product rules (before any flag flip)</h3>
+        <p class="lede">
+          Decide denominations, <code>use_by</code> window (ProtectedPlay payouts use 7 days;
+          admin upload uses 30), opt-in vs auto (<code>opt_in: false</code> on payout FreeEntries),
+          packs ineligibility, and whether wins stay immediately withdrawable credit. Counsel
+          should bless converting or expiring existing <code>promo_cents</code> later — that
+          stock is already a liability.
+        </p>
+        <h3>1. Stop the easy firehoses (days–2 weeks)</h3>
+        <table class="compact dense">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Why first</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Enable DEPOSIT_MATCH_PROMOTION_REDEMPTION; backfill tag on active DepositMatches</td>
+              <td>Already awards via PromotionPayoutService; flag only tags new records.</td>
+            </tr>
+            <tr>
+              <td>Assign five_free_ten_dollar_lineups; stop fifty_dollar_promo and FTD wallet match</td>
+              <td>FirstWagerService already mints 5 FreeEntries when NEW_MEMBER_OFFER_PROMOTION_ID is set.</td>
+            </tr>
+            <tr>
+              <td>Redirect /promo_dash bulk to FreeEntryUpload; deny is_promo bulk grants</td>
+              <td>Same operators, same CSV habit, existing service.</td>
+            </tr>
+            <tr>
+              <td>Do not restore wallet referral_bonus if already killed after Jul 21</td>
+              <td>$2.56M then $0 — confirm missions vs outage first.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="slide-foot"><span>16</span></footer>
+    </section>
+
+    <!-- 17. Sequence 2-3 -->
+    <section class="slide" data-title="Sequence 2-3">
+      <header class="slide-top">
+        <span>Recommended sequence</span>
+        <span>Steps 2–3</span>
+      </header>
+      <div class="slide-body">
+        <h2>Variable amounts, admin, leftover issuers</h2>
+        <h3>2. Variable amounts and admin (2–4 weeks)</h3>
+        <p class="lede">
+          Reuse <code>PromotionPayoutService</code> denomination buckets ($20 / $50 / $150 /
+          $250 splits) for FTD deposit match and referral dollar amounts so a $37 match becomes
+          discrete lineups instead of promo_cents. Replace the admin “credit promo” control with
+          “issue Bonus Lineups” (amount, quantity, use_by). Keep <code>pp_adjustment</code> only
+          for credit (real money) and for reversing existing promo.
+        </p>
+        <h3>3. Close leftover promo issuers</h3>
+        <p class="lede">
+          Hunt remaining <code>funds_type: :promo</code> credits: mission_winnings,
+          contest_winnings, entry_won with <code>payout_type: promo</code>, NATS/external,
+          ProtectedPlay if PROMOTION_REDEMPTION is not fully on. Add a guard in
+          <code>Users::Wallet::Credit</code> that rejects new promo except
+          <code>ReverseOnBalancePromo</code> (refunds of in-flight promo-tagged entries).
+        </p>
+      </div>
+      <footer class="slide-foot"><span>17</span></footer>
+    </section>
+
+    <!-- 18. Sequence 4-5 -->
+    <section class="slide" data-title="Sequence 4-5">
+      <header class="slide-top">
+        <span>Recommended sequence</span>
+        <span>Steps 4–5</span>
+      </header>
+      <div class="slide-body">
+        <h2>Drain the stock, then hard stop</h2>
+        <h3>4. Drain the stock already on the books</h3>
+        <p class="lede">
+          Snapshot outstanding <code>balances.promo_cents</code> (issuance ≠ remaining liability).
+          Then, in order of preference: (1) spend-down with a hard date and in-app/comms,
+          (2) convert remainder to Bonus Lineups of equal notional with a short <code>use_by</code>,
+          or (3) one-time expire with legal/comms. Keep the promo debit path until the bucket is ~0.
+        </p>
+        <h3>5. Hard stop</h3>
+        <p class="lede">
+          After stock is gone and reverses of old entries have aged out, delete issuance types
+          <code>deposit_matched</code> / <code>new_member_offer</code> / <code>referral_bonus</code> /
+          promo <code>promo_added</code> from the credit path. Daily promo-spend limit and Braze
+          <code>promo_balance</code> become unused. New KPI: issued / redeemed / expired Bonus
+          Lineups and credit paid on win — not promo_cents granted.
+        </p>
+      </div>
+      <footer class="slide-foot"><span>18</span></footer>
+    </section>
+
+    <!-- 19. Keep vs stop -->
+    <section class="slide" data-title="Keep stop">
+      <header class="slide-top">
+        <span>During the drain</span>
+        <span>Keep vs stop</span>
+      </header>
+      <div class="slide-body">
+        <h2>What must keep working during the drain</h2>
+        <table class="compact">
+          <thead>
+            <tr>
+              <th>Keep</th>
+              <th>Stop</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DebitEntryPlaced on promo_tag for users who still have promo_cents</td>
+              <td>Any new Credit* into promo except refunds</td>
+            </tr>
+            <tr>
+              <td>ReverseOnBalancePromo when a promo-funded entry is refunded</td>
+              <td>Promo dash / admin is_promo=true grants</td>
+            </tr>
+            <tr>
+              <td>FreeEntry: amount_bet 0, fund_type credit_promo, win → credit</td>
+              <td>Assuming unused promo will “fall off” without a project</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="slide-foot"><span>19</span></footer>
+    </section>
+
+    <!-- 20. Risks -->
+    <section class="slide" data-title="Risks">
+      <header class="slide-top">
+        <span>Risks to staff explicitly</span>
+        <span>Mitigations</span>
+      </header>
+      <div class="slide-body">
+        <h2>Risks to staff explicitly</h2>
+        <table class="compact dense">
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fixed stake + DFS-only is worse than a $50 fungible bucket</td>
+              <td>Issue multiple tokens; relax packs ineligibility only if Finance agrees</td>
+            </tr>
+            <tr>
+              <td>Opt-in + use_by raises breakage vs silent promo credit</td>
+              <td>Match ProtectedPlay: opt_in false, 7–30 day use_by, clear inbox/Braze</td>
+            </tr>
+            <tr>
+              <td>Winning Bonus Lineups create withdrawable credit (cash)</td>
+              <td>Model EV vs old promo liability; playthrough on credit wins if Compliance wants</td>
+            </tr>
+            <tr>
+              <td>VIP $10k–$50k grants cannot be one $50k lineup</td>
+              <td>Policy cap; split via PromotionPayoutService; or credit with playthrough, never promo</td>
+            </tr>
+            <tr>
+              <td>Existing promo_cents has no source/FIFO</td>
+              <td>Cannot expire “July deposit matches” only — convert/expire whole bucket per user</td>
+            </tr>
+            <tr>
+              <td>DepositMatch copy still says Bonus funds</td>
+              <td>Update headline/description when the redemption flag is on</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="slide-foot"><span>20</span></footer>
+    </section>
+
+    <!-- 21. Success -->
+    <section class="slide" data-title="Success">
+      <header class="slide-top">
+        <span>Success</span>
+        <span>Definition of done</span>
+      </header>
+      <div class="slide-body title-body">
+        <h2>Success looks like</h2>
+        <div class="callout callout-neutral">
+          <p>
+            New campaigns never increment <code>promo_cents</code>. Outstanding promo_cents
+            trends to zero without a quarterly expire CSV. Unused offers die on
+            <code>use_by</code>. Wins that cost us money show up as credit
+            <code>entry_won</code> — the actual cash liability.
+          </p>
+        </div>
+        <ul class="summary-points">
+          <li>Cut over five issuance channels onto existing Bonus Lineup paths</li>
+          <li>Guard <code>Users::Wallet::Credit</code> against new promo except reverses</li>
+          <li>Drain stock, then delete promo issuance types from the credit path</li>
+          <li>KPI shifts to issued / redeemed / expired lineups and credit paid on win</li>
+        </ul>
+      </div>
+      <footer class="slide-foot"><span>21</span></footer>
     </section>
   </main>
 
