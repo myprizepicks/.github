@@ -1,0 +1,6 @@
+transaction_type,source,transactions,unique_users,total_amount_dollars,avg_amount_dollars,median_amount_dollars,min_amount_dollars,max_amount_dollars,pct_of_total
+referral_bonus,Referral bonus,55782,45568,2557525.0,45.84857122369223,50.0,10.0,50.0,32.00362285227742
+pp_adjustment,Admin adjustment,2252,1261,1998965.93,887.6402886323268,100.0,0.25,50000.0,25.01408655566299
+promo_added,Promo dash bulk upload,11435,2380,1212115.0,106.0004372540446,75.0,25.0,5250.0,15.167817054999754
+deposit_matched,Deposit match,86539,80222,1116251.66,12.898827811738059,6.25,2.5,200.0,13.968229884309478
+new_member_offer,New member offer,30401,30385,1106503.3,36.39693760073682,50.0,10.0,100.0,13.846243652750365

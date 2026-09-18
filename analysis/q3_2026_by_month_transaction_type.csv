@@ -1,0 +1,14 @@
+month,transaction_type,transactions,total_amount_dollars
+2026-07,referral_bonus,55782,2557525.0
+2026-07,deposit_matched,79841,1017430.46
+2026-07,pp_adjustment,1006,765954.16
+2026-07,new_member_offer,13309,507098.3
+2026-07,promo_added,3855,398820.0
+2026-08,pp_adjustment,709,821203.92
+2026-08,promo_added,5529,601790.0
+2026-08,new_member_offer,6301,221168.43
+2026-08,deposit_matched,5144,80229.93
+2026-09,pp_adjustment,537,411807.85
+2026-09,new_member_offer,10791,378236.57
+2026-09,promo_added,2051,211505.0
+2026-09,deposit_matched,1554,18591.27
