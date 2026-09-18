@@ -1,0 +1,8 @@
+# Dependencies
+node_modules
+
+# Local
+.vercel
+.DS_Store
+
+.vercel
